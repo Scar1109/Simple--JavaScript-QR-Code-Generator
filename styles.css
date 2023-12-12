@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+    body {
+        background-color: #202020;
+    }
+
+    .container {
+        background-color: #121212;
+        color: white;
+        border-radius: 5%;
+        padding: 3em;
+    }
+
+    .header {
+        color: #d3d3d3;
+        text-align: center;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: 38px;
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .download-share-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 1em;
+    }
+
+    .download-share-buttons button {
+        margin-right: 0.5em;
+    }
+
+    .head{
+        background-color: #121212;
+    }
+
+    .qr-section{
+        display: none;
+    }
+    
+    #spinner{
+        padding: 100px 0px;
+        display: none;
+    }
+
+
+    /* bb86fc */

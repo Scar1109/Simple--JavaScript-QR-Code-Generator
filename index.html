@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="py-2 head">
+        <h1 class="header">QR Code Generator</h1>
+    </header>
+        <div class="container shadow" style="width: 800px; margin-top: 5em; padding: 3em">
+        <h3 class="text-center">Enter text/link to generate a QR code</h3>
+        </br>
+        <!-- Input section -->
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Text/Link:</span>
+            <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default" id="qr-text" name="qr_text" autofocus>
+        </div>
+        <div class="input-group mb-3">
+            <input type="submit" onclick="generateQrCode()" style="max-width: 200px; margin: auto" class="form-control" value="Generate">
+            
+        </div>
+
+        <!-- Spinner -->
+        <div class="d-none justify-content-center" id="spinner">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+        <!-- QR Code -->
+        <div class="qr-section" id="qr-section" >
+        <h4 class="text-center" id="output-text"></h4></br>
+        <div class="input-group mb-3">
+            <div style="margin: auto">
+                
+                <img src="data:image/png;base64,{{ qr_image_base64 }}" alt="QR Code">
+                <div class="download-share-buttons">
+                    <button class="btn btn-primary" onclick="downloadQR()">Download</button>
+                    <button class="btn btn-primary" onclick="shareQR()">Share</button>
+                </div>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
