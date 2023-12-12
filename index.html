@@ -18,10 +18,39 @@
             <span class="input-group-text" id="inputGroup-sizing-default">Text/Link:</span>
             <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default" id="qr-text" name="qr_text" autofocus>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group mb-2">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Size:</span>
+                    <select class="form-select" id="select-size" aria-label="Floating label select example">
+                        <option value="100">100x100</option>
+                        <option value="200">200x200</option>
+                        <option value="300">300x300</option>
+                        <option value="400">400x400</option>
+                        <option value="500" selected>500x500</option>
+                        <option value="750">750x750</option>
+                        <option value="1000">1000x1000</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group mb-2">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Format:</span>
+                    <select class="form-select" id="select-format" aria-label="Floating label select example">
+                        <option value="png">PNG</option>
+                        <option value="gif">GIF</option>
+                        <option value="jpg" selected>JPG</option>
+                        <option value="svg">SVG</option>
+                    </select>
+                </div>
+            </div>
+    </div>
+        <br>  
         <div class="input-group mb-3">
             <input type="submit" onclick="generateQrCode()" style="max-width: 200px; margin: auto" class="form-control" value="Generate">
             
         </div>
+
 
         <!-- Spinner -->
         <div class="d-none justify-content-center" id="spinner">
@@ -39,12 +68,24 @@
                 <img src="" id="qr" alt="QR Code">
                 <div class="download-share-buttons">
                     <button class="btn btn-primary" onclick="downloadQR()">Download</button>
-                    <button class="btn btn-primary" onclick="shareQR()">Share</button>
                 </div>
             </div>
         </div>
         </div>
     </div>
+
+    <!-- Alert msg -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+        <strong class="me-auto">QR Code Generator</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+        Please enter a valid text/link.
+        </div>
+    </div>
+</div>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="scripts.js"></script>
 </body>

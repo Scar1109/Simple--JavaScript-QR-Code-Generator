@@ -1,7 +1,9 @@
 function generateQrCode() {
     var qrText = document.getElementById("qr-text").value;
     if (!qrText) {
-        alert("Please enter the text");
+        const toastLiveExample = document.getElementById('liveToast')
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+        toastBootstrap.show()
     }else{
     displaySections(qrText);
     }
@@ -26,5 +28,7 @@ function displaySections(text) {
 
 function displayQrCode(text) {
     var qrCode = document.getElementById("qr");
-    qrCode.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + text;
+    qrCode.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&margin=5&data=" + text;
 }
+
+
