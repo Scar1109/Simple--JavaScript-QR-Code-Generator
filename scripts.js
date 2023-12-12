@@ -14,6 +14,7 @@ function displaySections(text) {
     spinner.classList.remove("d-none");
     spinner.classList.add("d-flex");
     qrSection.style.display = "none";
+    displayQrCode(text);
 
     setTimeout(function () {
         spinner.classList.remove("d-flex");
@@ -21,4 +22,9 @@ function displaySections(text) {
         outputText.innerText = "QR for '" + text + "' is:";
         qrSection.style.display = "block";
     }, 2000);
+}
+
+function displayQrCode(text) {
+    var qrCode = document.getElementById("qr");
+    qrCode.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + text;
 }
