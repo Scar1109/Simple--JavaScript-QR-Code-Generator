@@ -5,30 +5,45 @@ function generateQrCode() {
         const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
         toastBootstrap.show()
     }else{
-    displaySections(qrText);
+    var size = document.getElementById("qr-size").value;
+    var format = document.getElementById("qr-format").value;
+    displaySections(qrText,size,format);
     }
 }
 
-function displaySections(text) {
+function displaySections(text,size,format) {
     var qrSection = document.getElementById("qr-section");
     var spinner = document.getElementById("spinner");
-    var outputText = document.getElementById("output-text");
     spinner.classList.remove("d-none");
     spinner.classList.add("d-flex");
     qrSection.style.display = "none";
-    displayQrCode(text);
+
+    var link = generateQrLink(text,size,format);
+    visualChanges(text,size,link);
+    
 
     setTimeout(function () {
         spinner.classList.remove("d-flex");
         spinner.classList.add("d-none");
-        outputText.innerText = "QR for '" + text + "' is:";
         qrSection.style.display = "block";
     }, 2000);
 }
 
-function displayQrCode(text) {
+function generateQrLink(text,size,format) {
+    var link = "https://api.qrserver.com/v1/create-qr-code/?size="+size+ "x" + size + "&margin=5&data=" + text;
+    return link;
+}
+
+function visualChanges(text,size,link){
     var qrCode = document.getElementById("qr");
-    qrCode.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&margin=5&data=" + text;
+    var outputText = document.getElementById("output-text");
+    var displaySize = document.getElementById("sizeP");
+    var changeDownload = document.getElementById("download-link");
+
+    qrCode.src = link;
+    outputText.innerText = "QR for '" + text + "' is:";
+    displaySize.innerHTML = size + "x" + size + " px";
+    changeDownload.href = link;
 }
 
 

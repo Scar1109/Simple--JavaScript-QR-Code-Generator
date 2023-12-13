@@ -44,6 +44,15 @@
         display: none;
     }
 
+    .qr{
+        width: 150px;
+        
+    }
+    .sizeP{
+        color: #ffc905;
+        font-size: 10px;
+        padding-top: 2px;
+    }
 
 
     /* bb86fc */

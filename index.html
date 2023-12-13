@@ -10,7 +10,7 @@
     <header class="py-2 head">
         <h1 class="header">QR Code Generator</h1>
     </header>
-        <div class="container shadow" style="width: 800px; margin-top: 5em; padding: 3em">
+        <div class="container shadow" style="width: 800px; margin-top: 4em; margin-bottom: 4em; padding: 3em">
         <h3 class="text-center">Enter text/link to generate a QR code</h3>
         </br>
         <!-- Input section -->
@@ -22,7 +22,7 @@
             <div class="col-md-6">
                 <div class="input-group mb-2">
                     <span class="input-group-text" id="inputGroup-sizing-default">Size:</span>
-                    <select class="form-select" id="select-size" aria-label="Floating label select example">
+                    <select class="form-select" id="qr-size" aria-label="Floating label select example">
                         <option value="100">100x100</option>
                         <option value="200">200x200</option>
                         <option value="300">300x300</option>
@@ -36,7 +36,7 @@
             <div class="col-md-6">
                 <div class="input-group mb-2">
                     <span class="input-group-text" id="inputGroup-sizing-default">Format:</span>
-                    <select class="form-select" id="select-format" aria-label="Floating label select example">
+                    <select class="form-select" id="qr-format" aria-label="Floating label select example">
                         <option value="png">PNG</option>
                         <option value="gif">GIF</option>
                         <option value="jpg" selected>JPG</option>
@@ -62,12 +62,15 @@
         <!-- QR Code -->
         <div class="qr-section" id="qr-section" >
         <h4 class="text-center" id="output-text"></h4></br>
-        <div class="input-group mb-3">
+        <div class="input-group mb-2">
             <div style="margin: auto">
                 
-                <img src="" id="qr" alt="QR Code">
+                <img src="" class="qr" id="qr" alt="QR Code">
+                <p class="sizeP" id="sizeP">100x100 Px</p>
                 <div class="download-share-buttons">
-                    <button class="btn btn-primary" onclick="downloadQR()">Download</button>
+                    <a href="https://api.qrserver.com/v1/create-qr-code/?size=500x500&margin=5&data=dfsdfssd" id="download-link">
+                        <button class="btn btn-primary" >Download</button>
+                    </a>
                 </div>
             </div>
         </div>
