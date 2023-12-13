@@ -1,3 +1,4 @@
+
 function generateQrCode() {
     var qrText = document.getElementById("qr-text").value;
     if (!qrText) {
@@ -7,18 +8,19 @@ function generateQrCode() {
     }else{
     var size = document.getElementById("qr-size").value;
     var format = document.getElementById("qr-format").value;
-    displaySections(qrText,size,format);
+    var margin = document.getElementById('customRange2').value;
+    displaySections(qrText,size,format,margin);
     }
 }
 
-function displaySections(text,size,format) {
+function displaySections(text,size,format,margin) {
     var qrSection = document.getElementById("qr-section");
     var spinner = document.getElementById("spinner");
     spinner.classList.remove("d-none");
     spinner.classList.add("d-flex");
     qrSection.style.display = "none";
 
-    var link = generateQrLink(text,size,format);
+    var link = generateQrLink(text,size,format,margin);
     visualChanges(text,size,link);
     
 
@@ -29,8 +31,8 @@ function displaySections(text,size,format) {
     }, 2000);
 }
 
-function generateQrLink(text,size,format) {
-    var link = "https://api.qrserver.com/v1/create-qr-code/?size="+size+ "x" + size + "&margin=5&data=" + text;
+function generateQrLink(text,size,format,margin) {
+    var link = "https://api.qrserver.com/v1/create-qr-code/?size="+size+ "x" + size + "&margin=5&data=" + text + "&format=" + format + "&margin=" + margin ;
     return link;
 }
 
@@ -46,4 +48,11 @@ function visualChanges(text,size,link){
     changeDownload.href = link;
 }
 
+var rangeInput = document.getElementById("customRange2");
+rangeInput.addEventListener("input", function () {
+    const rangeValueDisplay = document.getElementById('rangeValue');
+    var rangeDisplay = rangeInput.value;
+    rangeValueDisplay.textContent = `Border: ${rangeDisplay} px`;
+
+});
 
